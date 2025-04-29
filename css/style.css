@@ -82,3 +82,27 @@ body {
     background: var(--recuperacao);
     color: white;
  }
+
+ .situacao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0;
+    border-radius: 4px;
+    height: 35px;
+    width: 60%;
+    background: rgb(194, 194, 194);
+}
+
+.situacao-aprovado {
+    background: var(--aprovado);
+}
+
+.situacao-recuperacao {
+    background: var(--recuperacao);
+}
+
+.situacao-reprovado {
+    background: var(--reprovado);
+
+}
