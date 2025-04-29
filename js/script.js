@@ -12,25 +12,25 @@ let situacao = document.querySelector('#situacao-id');  //pega o conteudo do ID 
 
 let x = situacao.innerHTML;
 
-console.log(x);
+//console.log(x);
 
 // Calcula a media entre 2 valores, retorna um float
 function media(num1, num2) {
-    console.log('FUNCAO MEDIA SENDO CHAMADA');
+   //console.log('FUNCAO MEDIA SENDO CHAMADA');
     return (num1 + num2) / 2; //Retorna um inteiro
 }
 
 
 // Valida o que sua média te retorna, se é aprovado, recuperacao ou reprovado e retorna uma string
 function validarMedia(media) {
-    console.log('VALIDAR MEDIA SENDO CHAMADA');
+    //console.log('VALIDAR MEDIA SENDO CHAMADA');
     let situacaoFinal = '';
 
     if (media >= 7) {
         situacaoFinal = 'Aprovado(a)';
     } else if (media >=4) {
         situacaoFinal = 'Recuperacao';
-    } else {
+    } else if (media>=0 && media < 4){
         situacaoFinal = 'Reprovado(a)';
     }
 
@@ -39,7 +39,7 @@ function validarMedia(media) {
 
 // recebe uma string e conforme a opcao, ele adiciona ou tira as classes
 function verificarSituacao(situacaoFinal) {
-    console.log('FUNÇÃO SITUACAO FINAL');
+    //console.log('FUNÇÃO SITUACAO FINAL');
 
     switch(situacaoFinal) {
         case 'Aprovado(a)':
@@ -62,7 +62,13 @@ function verificarSituacao(situacaoFinal) {
         break;
 
         default:
-            console.log('Situação indefinida');       
+    }
+}
+
+function verificarValoresInseridos(num) {
+    if (num < 0 || isNaN(num)) {
+        //se caso for menor que zero ou diferente de um numero, ele retorna e para a função
+        return
     }
 }
 
@@ -71,10 +77,8 @@ btnCalcular.addEventListener('click', function (e) {
     let valorNota1 = parseFloat(nota1.value);
     let valorNota2 = parseFloat(nota2.value);
 
-    if (valorNota1 < 0 || isNaN(valorNota1) || valorNota2 < 0 || isNaN(valorNota2)) {
-        alert('ERRO');
-        return ;
-    }
+    verificarValoresInseridos(valorNota1);
+    verificarValoresInseridos(valorNota2);
 
     //funcao media
     let calculoMedia = media(valorNota1, valorNota2);    
@@ -87,7 +91,7 @@ btnCalcular.addEventListener('click', function (e) {
 
     if(isNaN(calculoMedia) || calculoMedia < 0) {
         situacao.value = ''
-        console.log(situacao);
+        //console.log(situacao);
     } else {
         campoMedia.value = parseFloat(calculoMedia); //muda o valor de campo media
         situacao.innerHTML = validarMedia(calculoMedia);
