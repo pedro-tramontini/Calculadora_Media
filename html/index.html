@@ -7,9 +7,58 @@
     <title>Document</title>
 </head>
 <body>
-    
+
+    <div id="container">
+        <h1 id="titulo">Calcula Média</h1>
+
+        <form action="" method="post" id="formulario">
+            <div class="form-group">
+                <label for="nota-1">Nota 1</label>
+                <input type="number"
+                id="nota1"
+                class="input-valor"
+                required
+                autofocus
+                >
+            </div>
+            <div class="form-group">
+                <label for="nota-2">Nota 2</label>
+                <input type="number"
+                id="nota2"
+                class="input-valor"
+                required
+                >
+            </div>
+
+        <!-- Botoes -->
+
+        <div id="button-groupd">
+
+        <button type="submit"
+        id="btn-calcular">
+        Calcular
+        </button>
+
+        <button type="submit"
+        id="btn-calcular">
+        Limpar
+        </button>
+
+        </div>
+
+        <div class="form-group">
+            <label for="media">Média</label>
+            <input type="number"
+            id="media"
+            class="input-valor"
+            disabled
+            >
 
 
+        </form>
+
+
+    </div>
 
 
 </body>
